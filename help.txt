@@ -1,0 +1,33 @@
+Step 1)UPload Proper code to Github
+
+Step 2)Create an account in https://run.pivotal.io/.
+
+Step 3)Login with your credentials
+
+Step 4)windows 64 bit CLI
+
+Step 5)INstall the CLi, by clicking on cf_installer.
+
+Step 6)go to command prompt and type below commands one by one:
+
+   cf login -a https://api.run.pivotal.io API endpoint: https://api.run.pivotal.io chakravarthi.menta@gmail.com !QAZ2wsx WebAnalytics WebAnalytics _Space
+
+   C:\Users\Administrator\Documents\GitHub>cf push Mutate_Chakri
+
+Step7)it should give some url like (http://mutate-chakri.cfapps.io/)
+
+
+1)Simply Reliable For Customer
+2)Interoperable
+3)Open Source
+4)Completely deployed using Devops
+5)Only 20% of orders coming from .Com
+6)User Activitites
+
+
+Creating Environment Variable:(To resolve CF issue connectivity).
+
+1)Go to Mycoumputers
+2)Right Click--->Advanced System settings--->environment variables--->system variables--->
+Variable Name: HTTP_PROXY
+Variable Value: http://proxy.ebiz.verizon.com:80---> ok --->ok --->ok

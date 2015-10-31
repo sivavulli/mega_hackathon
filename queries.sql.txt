@@ -1,0 +1,4 @@
+SELECT country,city,
+case when substr(click_time,1,7) ='2015-10' then count(session_id) end as 2015_oct_views,
+case when substr(click_time,1,7) ='2015-11' then count(session_id) else 0 end as 2015_Nov_views
+FROM `tbl_page_click_details` group by country,city

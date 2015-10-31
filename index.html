@@ -1,36 +1,84 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" ng-app="mega_hackathon">
 <head>
-<title>Telecome service providers</title>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/findmytech.css" rel="stylesheet"/>
+    <title>Tech tracker</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/findmytech.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbkaezXl9cJKLb0ACxy0XzjNZ-QcsBFbk&signed_in=true&libraries=places"></script>
+
+
 </head>
-<body style="background-color:silver">
-<center><h4><pre><font color="blue">ServiceProviders.com</font></pre></h4></center>
-<marquee><font color="red">Verizon’s Wireless Network ranked #1 for overall performance nationally by RootMetrics. </font> </marquee>
-<center><br><br>
-<h1>
-<a href="2.html">Verizon</a><br><br> <br><br><br> 
-<a href="https://www.att.com/">AT&T</a><br><br> <br><br><br> 
-<a href="https://www.sprint.com/#!/">Sprint</a><br><br> <br><br><br> 
-<a href="http://www.xfinity.com/">ComCast</a><br><br>
-</center>
-</h1>
-<dir align="ltr">
-<center>
-<h1>
-
-<br><br><br>
-
-
-</h1>
-</center>
-<center>
-<div id="menu" align="middle" >
-<a href="contact_us.html">Contact</a> | 
-<a href="feed_back.html">Feed back</a> | 
-<a href="queries.html">Queries</a> |
-<a href="terms_conditions.html">Terms and Conditions</a>
+<body  ng-controller="ProblemController">
+<div  class="container">
+<div>
+    <h2 class="title">Welcome to VZ Support</h2>
 </div>
-</center>
+<div class="marbt10">
+    <!--<button class="btn btn-lg btn-primary btn-block marbt10" ng-click="showCustomer()">Customer</button>
+  <button class="btn btn-lg btn-primary btn-block marbt10" ng-click="showTechnician()">Technician</button>-->
+    <label class="radio-inline"><input type="radio" class="marbt10" name="tracker" ng-click="showCustomer()">Customer</label>
+    <label class="radio-inline"><input type="radio" class="marbt10" name="tracker" ng-click="showTechnician()">Technician</label>
+
+</div>
+
+<div id="customer" ng-show="showcustomer">
+
+
+<div class="marbt10">
+    <input id="address" class="form-control" placeholder="Enter your address" type="text"/>
+
+</div>
+    <button class="btn btn-lg btn-primary btn-block marbt10" ng-click="showproblems()">Continue</button>
+    <div id="custmprb" ng-show="clicked" class="marbt10">
+
+        <select class="form-control marbt10" ng-model="myproblem" ng-options="prb.desc for prb in problems">
+
+        </select>
+        <div class="marbt10">
+            <button id="submit" class="btn btn-lg btn-primary btn-block marbt10" ng-click="showmap()">Show technicians</button>
+        </div>
+</div>
+
+<div id="map" class="marbt10" ng-show="toshowmap" style="width:100%;height:400px;"  ></div>
+
+    <div class="marbt10" ng-show="toshowmap">
+        <button id="confirm" class="btn btn-lg btn-primary btn-block marbt10" ng-click="custconfirm()">Confirm</button>
+    </div>
+
+</div>
+<div id="Technician" ng-show="showtechnician">
+    <div  class="marbt10">
+        <select class="form-control marbt10" ng-model="SelectedTech" ng-init="SelectedTech = {name:'DDD'}"  ng-options="tech.name for tech in techdetails" ng-change = "getTechDetail()">
+       yyytt </select>
+    </div>
+    <div ng-show="showTech">
+    <div  class="marbt10">
+
+            <label>Name:</label>{{SelectedTech.name}}
+            <label>id:</label>{{SelectedTech.id}}
+            <label>mobile:</label>{{SelectedTech.mobile}}
+            <label>busy:</label>{{SelectedTech.busy}}
+    </div>
+    <div>
+        <button id="Busy" class="btn btn-lg btn-primary btn-block marbt10" ng-click="getBusy()"  ng-show=iffree>Get Busy</button>
+        <button id="Free" class="btn btn-lg btn-primary btn-block marbt10" ng-click="getFree()"  ng-show=ifbusy>Get Free</button>
+        <div ng-show="jobontheway">
+            <label>A job is ready to get assigned to you</label>
+        </div>
+    </div>
+        <div id="techmap" class="marbt10" ng-show="ifbusy" style="width:100%;height:400px;"></div>
+    </div>
+
+</div>
+</div>
 </body>
 </html>
-
-

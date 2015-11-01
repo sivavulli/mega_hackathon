@@ -15,6 +15,7 @@ if(isset($_SESSION["id"]) && !empty($_SESSION["id"])){
 	$obj->PageLoadTime=nullif($_POST["PageLoadTime"]);
 	$obj->Country=nullif($_POST["Country"]);
 	$obj->City=nullif($_POST["City"]);
+	$obj->referrer=nullif($_POST["referrer"]);
 
 
 }
@@ -28,6 +29,7 @@ else{
 	$obj->PageLoadTime=nullif($_POST["PageLoadTime"]);
 	$obj->Country=nullif($_POST["Country"]);
 	$obj->City=nullif($_POST["City"]);
+	$obj->referrer=nullif($_POST["referrer"]);
 
 }
 //print_r($obj);
@@ -48,17 +50,17 @@ function nullif($var){
 		.$obj->TimeSpent.",".$obj->PageLoadTime.")";
  echo $sql;
 */
-$con=mysqli_connect("localhost","root","","webanalytics");
+$con=mysqli_connect("sql5.freemysqlhosting.net","sql595057","uA3!mR9%","sql595057");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $sql = "INSERT INTO  tbl_page_performance_details".
-		"(session_id,ip_addr,entrytime,curr_page_url,country ,city ,time_spent ,page_load_time )".
+		"(session_id,ip_addr,entrytime,curr_page_url,country ,city ,time_spent ,page_load_time,referrer_url )".
 		" VALUES ('"
 		.$obj->SessionID."','".$obj->IPAddress."','".$obj->EntryTime."','"
 		.$obj->CurrentPage."','".$obj->Country."','".$obj->City."',"
-		.$obj->TimeSpent.",".$obj->PageLoadTime.")";
+		.$obj->TimeSpent.",".$obj->PageLoadTime.",'".$obj->referrer."')";
 	if (!mysqli_query($con,$sql))
 	{
 		die('Error: ' . mysqli_error($con));

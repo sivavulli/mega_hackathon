@@ -8,7 +8,10 @@ var City;
 var TimeSpent;
 var referrer
 var CurrentPage  = window.location.href;
-
+$(document).ready(function(){
+referrer=document.referrer;	
+	
+});
 $(window).load(function(){
 	
 	if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
@@ -28,7 +31,7 @@ $(window).load(function(){
 
 	
 $(document).click(function(event) {
-    if($(event.target).is("body")){alert("body alert");}
+    
     else{
     if($(event.target).is(":button") || $(event.target).is(":submit"))
     {
@@ -78,7 +81,7 @@ $(window).bind('beforeunload',function() {
     
     $.ajax({ 
     	url: 'PerformaceService.php',
-        data: {CurrentPage: CurrentPage,Country: Country, TimeSpent: TimeSpent,PageLoadTime: PageLoadTime,City: City},
+        data: {CurrentPage: CurrentPage,Country: Country, TimeSpent: TimeSpent,PageLoadTime: PageLoadTime,City: City,referrer : referrer},
         type: 'post',
         success: function(output) {
                     

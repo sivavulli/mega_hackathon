@@ -20,7 +20,7 @@ table, td {
 <body>
 <?php
 
-$con=mysqli_connect("localhost","root","","webanalytics");
+$con=mysqli_connect("sql5.freemysqlhosting.net","sql595057","uA3!mR9%","sql595057");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();

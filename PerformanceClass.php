@@ -9,6 +9,7 @@ class Performance
 	public $TimeSpent;
 	public $PageLoadTime;
 	public $City;
+	public $referrer;
 	function __construct(){
 		if (!empty($_SERVER['REMOTE_ADDR'])) {
 			$this->IPAddress = $_SERVER['REMOTE_ADDR'];

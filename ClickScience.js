@@ -31,7 +31,7 @@ $(window).load(function(){
 
 	
 $(document).click(function(event) {
-    
+	 if($(event.target).is("body")){} 
     else{
     if($(event.target).is(":button") || $(event.target).is(":submit"))
     {
@@ -78,16 +78,17 @@ $(function () {
 $(window).bind('beforeunload',function() {
     end =new Date().getTime();
     TimeSpent=((end-aftrload)/1000)
-    
+    alert("uloadevent");
     $.ajax({ 
     	url: 'PerformaceService.php',
         data: {CurrentPage: CurrentPage,Country: Country, TimeSpent: TimeSpent,PageLoadTime: PageLoadTime,City: City,referrer : referrer},
         type: 'post',
         success: function(output) {
-                    
+                alert(JSON.stringify(output));    
                  },
         error:function(err){
-    				
+        	alert("error");
+            alert(JSON.stringify(err));
             }
     });
     
@@ -109,15 +110,16 @@ function SendClick(){
 	*/
 	
 	var data = '{"action":"'+clickContent+'"}'; 
-				
+	alert("calling");
 	
 	$.ajax({ url: 'Service.php',
 		type: "POST", 
 		
 		data: {clickType: clickType,clickContent:clickContent,ClickComment:ClickComment,CurrentPage : window.location.href,EntryTime:new Date().getTime(),Country : Country,City :City},
          success: function(output) {
-         
-                 }
+        	 alert(JSON.stringify(output)); 
+                 },
+		error:function(error){alert(JSON.stringify(error));}
 });
 	
 	/*$.ajax({ url: 'sample.php',

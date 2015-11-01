@@ -20,15 +20,12 @@ table, td {
 <body>
 <?php
 
-$con=mysqli_connect("localhost","root","","webanalytics");
+$con=mysqli_connect("sql5.freemysqlhosting.net","sql595057","uA3!mR9%","sql595057");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-$sql = "SELECT Country,City," 
-."case when substr(click_time,1,7) ='2015-10' then count(session_id) end as 'Oct-2015'," 
-." case when substr(click_time,1,7) ='2015-11' then count(session_id) else 0 end as 'Nov-2015' "
-." FROM `tbl_page_click_details` group by country,city";
+$sql = "SELECT cast(`click_time` as date) as Date,Country,City,count(distinct `session_id` ) as 'No. of Viewers' from `tbl_page_click_details` group by cast(`click_time` as date),country,city";
 $result = $con->query($sql);
 
 

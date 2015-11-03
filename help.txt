@@ -17,8 +17,9 @@ Step 6)go to command prompt and type below commands one by one:
 --Notes:
 1)Orgnization name --webanalytics_1
 1)Sapce Name---mega_hackathon
+3)AppName:megahackathon_app
 
-   C:\Users\Administrator\Documents\GitHub>cf push https://github.com/sivavulli/mega_hackathon.git
+   C:\Users\Administrator\Documents\GitHub>cf push mega_hackathon -b https://github.com/sivavulli/mega_hackathon.git
 
 Step7)it should give some url like (http://mutate-chakri.cfapps.io/)
 
@@ -40,3 +41,7 @@ Variable Value: http://proxy.ebiz.verizon.com:80---> ok --->ok --->ok
 
 webanalytics-1.cfapps.io
 https://github.com/sivavulli/mega_hackathon.git
+
+
+
+cf push mega_hackathon_7 -b staticfile_buildpack

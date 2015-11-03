@@ -84,7 +84,7 @@ $(window).bind('beforeunload',function() {
         data: {CurrentPage: CurrentPage,Country: Country, TimeSpent: TimeSpent,PageLoadTime: PageLoadTime,City: City,referrer : referrer},
         type: 'post',
         success: function(output) {
- 
+ alert(output);
                  },
         error:function(err){
         	
@@ -116,7 +116,7 @@ function SendClick(){
 		
 		data: {clickType: clickType,clickContent:clickContent,ClickComment:ClickComment,CurrentPage : window.location.href,EntryTime:new Date().getTime(),Country : Country,City :City},
          success: function(output) {
-
+alert(output);
                  },
 		error:function(error){}
 });

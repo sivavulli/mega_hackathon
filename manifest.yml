@@ -1,0 +1,10 @@
+applications:
+- name: your app name
+  memory: 128M 
+  instances: 1
+  host: your app host
+  domain: cfapps.io
+  path: .
+  buildpack: https://github.com/cloudfoundry/php-buildpack.git
+  services:
+  - your db service name

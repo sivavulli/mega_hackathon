@@ -1,5 +1,7 @@
 create table tbl_page_click_details(
 session_id varchar(200),
+country   varchar(100),
+city        varchar(100),
 ip_addr varchar(20),
 curr_page_url varchar(200),
 click_type varchar(20),
@@ -14,7 +16,42 @@ comments varchar(200));
 create table tbl_page_performance_details(
 session_id varchar(200),
 ip_addr varchar(20),
+entrytime      datetime,
+country       varchar(100),
+city           varchar(100),
 curr_page_url varchar(200),
-redir_page_url varchar(200),
-time_spent_on bigint,
+referrer_url varchar(200),
+time_spent bigint,
 page_load_time bigint);
+
+
+
+uA3!mR9%
+
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| session_id      | varchar(200) | YES  |     | NULL    |       |
+| country         | varchar(100) | YES  |     | NULL    |       |
+| city            | varchar(100) | YES  |     | NULL    |       |
+| ip_addr         | varchar(20)  | YES  |     | NULL    |       |
+| curr_page_url   | varchar(200) | YES  |     | NULL    |       |
+| click_type      | varchar(20)  | YES  |     | NULL    |       |
+| clicked_content | varchar(200) | YES  |     | NULL    |       |
+| click_time      | datetime     | YES  |     | NULL    |       |
+| comments        | varchar(200) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+
+
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| session_id     | varchar(200)  | YES  |     | NULL    |       |
+| ip_addr        | varchar(20)   | YES  |     | NULL    |       |
+| entrytime      | datetime      | YES  |     | NULL    |       |
+| curr_page_url  | varchar(200)  | YES  |     | NULL    |       |
+| country        | varchar(200)  | YES  |     | NULL    |       |
+| city           | varchar(200)  | YES  |     | NULL    |       |
+| time_spent     | decimal(15,2) | YES  |     | NULL    |       |
+| page_load_time | decimal(15,2) | YES  |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+

@@ -2,7 +2,7 @@ applications:
 - name: mega_hackathon_7
   memory: 128M 
   instances: 1
-  host: us-cdbr-iron-east-03.cleardb.net
+  host: mega-hackathon-7
   domain: cfapps.io
   path: .
   buildpack: https://github.com/cloudfoundry/php-buildpack.git

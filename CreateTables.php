@@ -30,7 +30,7 @@ $sql = "create table if not exists tbl_page_click_details("
 ."click_time datetime,"
 ."comments varchar(200));";
 
-$result = $con->query($sql);
+$resultcolumn = $con->query($sql);
 
 if (!$result && !$resultcolumn) {
 	echo "Could not successfully run query ($sql) from DB: " . $con->error;

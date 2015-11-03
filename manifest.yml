@@ -1,10 +1,10 @@
 applications:
-- name: your app name
+- name: mega_hackathon_7
   memory: 128M 
   instances: 1
-  host: your app host
+  host: us-cdbr-iron-east-03.cleardb.net
   domain: cfapps.io
   path: .
   buildpack: https://github.com/cloudfoundry/php-buildpack.git
   services:
-  - your db service name
+  - mysql_webanalytics

@@ -2,7 +2,7 @@
 include 'ChartClass.php';
 header('Content-type:application/json;charset=utf-8');
 
-$con=mysqli_connect("localhost","root","","webanalytics");
+$con=mysqli_connect("us-cdbr-iron-east-03.cleardb.net","b5cc7e24bc5291","4510e1e2","ad_b0866641ccff844");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();

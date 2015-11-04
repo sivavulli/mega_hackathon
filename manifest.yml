@@ -5,6 +5,6 @@ applications:
   host: mega-hackathon-7
   domain: cfapps.io
   path: .
-  buildpack: https://github.com/cloudfoundry/php-buildpack.git
+  buildpack: https://github.com/sivavulli/php-buildpack.git
   services:
   - mysql_webanalytics

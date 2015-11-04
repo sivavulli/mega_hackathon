@@ -8,7 +8,7 @@ Reports
 </title>
 </head>
 <body>
-<a href="gridview.php">
+<a href="GridView.php">
 Page Visit Report
 </a>
 <a href="TimespentReport.php">

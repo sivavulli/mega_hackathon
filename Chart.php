@@ -3,7 +3,7 @@
 <title>US Chart</title>
 <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
 
-<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script type="text/javascript">
 
 var datamart;

@@ -7,9 +7,7 @@
 <script type="text/javascript">
 
 var datamart;
-window.onload=function(){
 
-}
 	
 $(window).load(function(){
 	
@@ -18,7 +16,11 @@ $(window).load(function(){
 
 	//alert("before grab");
 	
+	while(!d3)
+{
 	
+	
+}
 
 
 

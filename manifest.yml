@@ -1,6 +1,6 @@
 applications:
 - name: mega_hackathon_7
-  memory: 128M 
+  memory: 1024M 
   instances: 1
   host: mega-hackathon-7
   domain: cfapps.io

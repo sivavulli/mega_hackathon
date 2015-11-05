@@ -2,12 +2,39 @@
 ini_set("error_reporting", E_ALL); 
 ini_set("display_errors", 1); 
 
+
 $con=mysqli_connect("us-cdbr-iron-east-03.cleardb.net","b5cc7e24bc5291","4510e1e2","ad_b0866641ccff844");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
+
+$sql = "CREATE TABLE my_splits ("
+  ."splitted_column varchar(500) NOT NULL,"
+  ."id int(10) DEFAULT NULL);";
+$result = $con->query($sql);
+
+$sql = "CREATE TABLE tbl_chathistory ("
+  ."Account_id int(11) DEFAULT NULL,"
+  ."Chat text,"
+  ."Latitude double DEFAULT NULL,"
+  ."Longitude double DEFAULT NULL,"
+  ."TimeStamp datetime DEFAULT CURRENT_TIMESTAMP);";
+$result1 = $con->query($sql);
+
+$sql = "CREATE TABLE tbl_finallist ("
+   ."splitted_column varchar(500) DEFAULT NULL,"
+   ."id varchar(45) DEFAULT NULL,"
+   ."cnt int(11) DEFAULT NULL);";
+$result2 = $con->query($sql);
+
+$sql = "CREATE TABLE tbl_stopwordlist ("
+  ."wordslist text);";
+$result3 = $con->query($sql);
+  
+  
+  /*
 $sql = "create table if not exists tbl_page_performance_details("
 ."session_id varchar(200),"
 ."ip_addr varchar(20),"
@@ -33,6 +60,7 @@ $sql = "create table if not exists tbl_page_click_details("
 ."comments varchar(200));";
 
 $resultcolumn =$con->query($sql);
+*/
 
 if (!$result && !$resultcolumn) {
 	echo "Could not successfully run query ($sql) from DB: " . $con->error();

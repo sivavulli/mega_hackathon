@@ -5,7 +5,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Chat</title>
+    <title>verizon aura - discussion forum</title>
     
     <link rel="stylesheet" href="style.css" type="text/css" />
     
@@ -122,7 +122,7 @@ $(window).load(function(){
                      
     			        chat.send(text, name);	
     			        $(this).val("");
-    			        $("#send-message-area").append("<p>hello</p>");
+    			        //$("#send-message-area").append("<p>hello</p>");
     			        
                     } else {
                     
@@ -139,27 +139,40 @@ $(window).load(function(){
 
 </head>
 
-<body onload="setInterval('chat.update()', 1000)">
-
-    <div id="page-wrap">
-    
-        <h2>aura</h2>
+<body onload="setInterval('chat.update()', 1000)" >
+		
+    <div id="page-wrap" >
+        <p id="name-area"></p>       
+        <table style="border:1px black; background:#E4EBED;">
+		<tr>
+		<td> 
+			<font style="font-weight:bold;font-size:30px;">aura</font>
+			<img src="images/vzlogo_lg.png" id="vz" style="width:28%;height:auto;"></img>
+		</td>
+		</tr>
+		<tr>
+		<td> 		
+		<div id="chat-wrap">
+			<div id="chat-area"> </div>
         
-        <p id="name-area"></p>
-        
-        <div id="chat-wrap"><div id="chat-area">
-        
-        </div>
-        <div style="margin-bottom:0px;width:inherit;height:10px;background-color:green;" id="ads"></div>
-        </div>
-        <div style="top :30px;position:relative;">
-        <form id="send-message-area">
-            <p>Your message: </p>
-            <textarea id="sendie" maxlength = '100' ></textarea>
-        </form>
-        </div>
-    
-    </div>
+		<div style="position:relative;">
+			<form id="send-message-area">
+				<textarea id="sendie" maxlength = '100' placeholder="Type Your Mesage Here"></textarea>
+			</form>
+		</div>
+		</div>
+		</td>
+		</tr>		
+					
+		<tr>
+		<td> 		
+			<div id="ads"></div>
+		</td>
+		</tr>		
+		
+		<tr>	
+		</table>
+        </div>            
 
 </body>
 

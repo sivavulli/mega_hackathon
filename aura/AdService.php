@@ -2,6 +2,7 @@
 ini_set("error_reporting", E_ALL); 
 ini_set("display_errors", 1); 
 
+
 $con=mysqli_connect("localhost","root","admin","cb1");
 if (mysqli_connect_errno($con))
 {

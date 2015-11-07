@@ -12,7 +12,7 @@
 </form>
 <?php
 echo "<pre>";
-//print_r($_POST);
+print_r($_POST);
 echo "</pre>";
 if(isset($_POST["querysubmit"]) && isset($_POST["Execute"]))
 {

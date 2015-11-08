@@ -7,11 +7,6 @@
 <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
 
 <script type="text/javascript" src="d3.js"></script>
-
-
-</head>
-<body>
-<div id="chart" style="left:50px;width:500px;height:500px;">
 <script type="text/javascript">
 
 var datamart;
@@ -117,6 +112,11 @@ function tooltip(x,y,value)
 
 
 </script>
+
+</head>
+<body>
+<div id="chart" style="left:50px;width:500px;height:500px;">
+
 <div id="feed">
 
 </div>

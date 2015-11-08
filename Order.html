@@ -33,31 +33,30 @@ $(window).load(function(){
 		
 	});
 	$("#pay").click(function(){
-		alert(offer);
-		wc=WCogent;
-		wc.Begin("Order "+offer,"before send","Attempt");
+		
+		
+		WCogent.Begin("Order "+offer,"before send","Attempt");
 		  $.ajax({ 
 			  beforeSend: function() {
 			        // setting a timeout
-			        alert("before send");
+			        
 				  wc.Begin("Order "+offer,"before send","Attempt");
 			    },
 		    	url: 'OrderService.php',
 		        data: {Filter : offer},
 		        type: 'post',
 		        success: function(output) {
-		             alert("case "+output);
-		             alert("length "+output.trim().length);
+		             
 		             console.log(output);
 		             if(output.trim() =="success")
 		            	 {
-		             alert("Before End function");
-		             wc.End("success");
+		             
+		             WCogent.End("success");
 		            	 }
-		             else{wc.End("Fail")}
+		             else{WCogent.End("Fail")}
 		                 },
 		        error:function(err){
-		        	alert(err);
+		        	
 		            }
 		    });
 		    return false;

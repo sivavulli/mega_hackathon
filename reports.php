@@ -13,7 +13,7 @@ $(window).load(function(){
 
 $("#visit").click(function(){
 	 
-	$("#container").attr("src","GridView.php");
+	$("#container").attr("src","gridview.php");
 	
 });
 
@@ -35,7 +35,14 @@ $("#chart").click(function(){
 	$("#container").attr("src","Chart.php");
 	
 });
+$("#donut").click(function(){
+	$("#container").attr("src","DonutChart.php");
 	
+});
+$("#navigation").click(function(){
+	$("#container").attr("src","PageNavigation.php");
+	
+});
 });
 </script>
 </head>
@@ -64,8 +71,16 @@ Page Load report
 Vist Chart
 </p>
 </div>
-
-
+<div id="donut" style="float:left;width:150px;height:50px;">
+<p style="top:15;color:white;">
+Transaction Report
+</p>
+</div>
+<div id="navigation" style="float:left;width:150px;height:50px;">
+<p style="top:15;color:white;">
+Navigation Report
+</p>
+</div>
 </div>
 <div  style="width:800px;height:1000px;left:200px;position:relative;" >
 <iframe id="container" src="" style="width:800px;height:1000px;"></iframe>

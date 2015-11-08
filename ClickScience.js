@@ -6,12 +6,65 @@ var aftrload;
 var Country;
 var City;
 var TimeSpent;
-var referrer
+var referrer;
+var MovAway;
+var ComeTo;
+var AwayTime=0;
+var WCogent={TransactionID:"",TransactionType:"",Comment:"",Status:"",
+		Begin:function(trnstype,cmnt,sttus){
+			this.TransactionType=trnstype;
+			this.Comment=cmnt;
+			this.Status=sttus;
+			var trid="";
+			 $.ajax({ 
+			    	url: 'TransactionService.php',
+			        data: {event:"begin",TransactionType: trnstype,Comment: cmnt, Status: sttus},
+			        type: 'post',
+			        success: function(output) {
+			             if(output.length==32)
+			            	 {
+			            	 trid=output;
+			            	 WCogent.TransactionID=trid;
+			            	 
+			            	 
+			            	 }
+			             else{this.Status="fail"}
+			                 
+			        }
+					
+			        ,
+			        error:function(err){
+			        	
+			            }
+			    });
+			 
+			},End:function(sttus){
+				
+				console.log("tr id "+WCogent.TransactionID);
+				console.log("tr type "+WCogent.TransactionType);
+				console.log("tr comment "+WCogent.Comment);
+				console.log("tr comment "+sttus);
+				if(this.Status=="fail"){sttus="fail"}
+				$.ajax({ 
+			    	url: 'TransactionService.php',
+			        data: {event:"end",TransactionID:WCogent.TransactionID,TransactionType: WCogent.TransactionType,Comment: WCogent.Comment, Status: sttus},
+			        type: 'post',
+			        success: function(output) {
+			                 
+			                 },
+			        error:function(err){
+			        	
+			            }
+			    });
+			}
+			}
+
 var CurrentPage  = window.location.href;
 $(document).ready(function(){
 referrer=document.referrer;	
 	
-});
+}
+);
 $(window).load(function(){
 	
 	if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
@@ -69,7 +122,7 @@ $(function () {
 	function gettimeload() {
 	 aftrload = new Date().getTime();
 	// Time calculating in seconds
-	time = (aftrload - beforeload) / 1000
+	time = (aftrload - beforeload) / 1000.000
 	PageLoadTime=time;
 	
 	}
@@ -77,14 +130,15 @@ $(function () {
 
 $(window).bind('beforeunload',function() {
     end =new Date().getTime();
-    TimeSpent=((end-aftrload)/1000)
-
+    
+    TimeSpent=(((end-aftrload)-AwayTime)/1000)
+    
     $.ajax({ 
     	url: 'PerformaceService.php',
         data: {CurrentPage: CurrentPage,Country: Country, TimeSpent: TimeSpent,PageLoadTime: PageLoadTime,City: City,referrer : referrer},
         type: 'post',
         success: function(output) {
-// alert(output);
+           //  alert(output);      
                  },
         error:function(err){
         	
@@ -93,6 +147,24 @@ $(window).bind('beforeunload',function() {
     
   });
  
+$(window).blur(function(e) {
+    // Do Blur Actions Here
+    
+    MovAway=new Date().getTime();
+    console.log("moving away"+ MovAway);
+});
+
+$(window).focus(function(e) {
+    // Do Focus Actions Here
+    
+    ComeTo=new Date().getTime();
+    console.log("coming to" +ComeTo );
+    AwayTime +=ComeTo-MovAway;
+    console.log("away time "+AwayTime);
+});
+
+
+
 function SendClick(){
 	
 	/*$.ajax({ 
@@ -100,23 +172,23 @@ function SendClick(){
     data: {clickType: clickType,clickContent:clickContent},
     type: 'post',
     success: function(output) {
-
+                 alert(JSON.stringify(output));
              },
     error:function(err){
-
+				alert(JSON.stringify(err));
         }
 });
 	*/
 	
 	var data = '{"action":"'+clickContent+'"}'; 
-
+	
 	
 	$.ajax({ url: 'Service.php',
 		type: "POST", 
 		
 		data: {clickType: clickType,clickContent:clickContent,ClickComment:ClickComment,CurrentPage : window.location.href,EntryTime:new Date().getTime(),Country : Country,City :City},
          success: function(output) {
-//alert(output);
+        	// alert(output);
                  },
 		error:function(error){}
 });
@@ -125,7 +197,7 @@ function SendClick(){
         data: {action: 'test'},
         type: 'post',
         success: function(output) {
-
+                     alert(JSON.stringify(output));
                  }
 });*/
 	}

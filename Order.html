@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>
+Wireline order page
+</title>
+<style type="text/css">
+td{
+width:150px;
+}
+</style>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="ClickScience.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+	var offer;
+	$("#offer").change(function(){
+		
+		offer=$("#offer").val();
+		if(offer=="Fios Triple Play")
+		{
+		$("#money").val(75);
+		}
+		else
+			if(offer=="Fios Double Play")
+			{
+			$("#money").val(50);
+			}
+			else
+				if(offer=="Fios Internet")
+				{
+				$("#money").val(40);
+				}
+		
+	});
+	$("#pay").click(function(){
+		alert(offer);
+		wc=WCogent;
+		wc.Begin("Order "+offer,"before send","Attempt");
+		  $.ajax({ 
+			  beforeSend: function() {
+			        // setting a timeout
+			        alert("before send");
+				  wc.Begin("Order "+offer,"before send","Attempt");
+			    },
+		    	url: 'OrderService.php',
+		        data: {Filter : offer},
+		        type: 'post',
+		        success: function(output) {
+		             alert("case "+output);
+		             alert("length "+output.trim().length);
+		             console.log(output);
+		             if(output.trim() =="success")
+		            	 {
+		             alert("Before End function");
+		             wc.End("success");
+		            	 }
+		             else{wc.End("Fail")}
+		                 },
+		        error:function(err){
+		        	alert(err);
+		            }
+		    });
+		    return false;
+		  });
+	
+	
+});
+</script>
+</head>
+<body style="background-color:#c4c2bc">
+<div style="width:600px; margin:0 auto;background-color:white;top:50px;box-shadow: 0px 0px 20px #888888;height:500px;border-radius:10px;position:relative;">
+<br/><br/>
+        <p style="margin:0 auto;font-family:calibri;text-align:center;">Place Order</p>
+        <div style="width:400px; margin:0 auto;top:50px;position:relative;height:400px;">
+        <table style="padding:20px;"><tr><td><span>Select Offer</span></td><td>
+        <select id="offer" >
+        <option name="Select" >Select</option>
+        <option name="Tripleplay" >Fios Triple Play</option>
+        <option name="Doubleplay" >Fios Double Play</option>
+        <option name="Internet" >Fios Internet</option>
+        </select></td></tr>
+        <tr><br/><br/><td>
+        <span>Visa</span> <input type="radio" name="card" value="Visa" /></td>
+         <td><span>MasterCard</span> <input type="radio" name="card" value="Visa" /></td></tr>
+         <tr><br/><br/><td>
+        <span>Name</span></td><td><input type="text" name="Name"/></td></tr>
+        <tr><br/><br/>
+        <td><span>Address</span></td><td><textarea></textarea></td></tr>
+        <tr><td>Price</td><td><input id="money" type="text" /></td></tr>
+        <tr><td><input type="button" id="pay" value="Pay" /></td></tr>
+        </table>
+    </div>
+</body>
+</html>

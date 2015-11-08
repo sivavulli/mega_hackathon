@@ -23,4 +23,4 @@ deploy:
   organization: webanalytics_1
   space: mega_hackathon
 
-sudo: required
+sudo: false

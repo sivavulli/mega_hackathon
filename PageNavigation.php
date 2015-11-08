@@ -20,7 +20,10 @@ table, td {
 <body>
 <?php
 
-$con=mysqli_connect("localhost","root","","webanalytics");
+ini_set("error_reporting", E_ALL); 
+ini_set("display_errors", 1); 
+
+$con=mysqli_connect("us-cdbr-iron-east-03.cleardb.net","b5cc7e24bc5291","4510e1e2","ad_b0866641ccff844");
 if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();

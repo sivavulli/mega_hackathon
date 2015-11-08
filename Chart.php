@@ -4,22 +4,26 @@
 <head>
 	<meta charset="UTF-8">
 <title>US Chart</title>
-<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script type="text/javascript">
 
 var datamart;
-while(!d3){}
+
 	
 $(window).load(function(){
 	
-	var w = 500;
-	var h = 500;
+	var w = 800;
+	var h = 800;
 
 	//alert("before grab");
 	
+	while(!d3)
+{
 	
+	
+}
 
 
 
@@ -29,27 +33,22 @@ $(window).load(function(){
 	//Define map projection
 	var projection = d3.geo.albersUsa()
 						   .translate([w/2, h/2])
-						   .scale([700]);
+						   .scale([800]);
 
 	//Define path generator
 	var path = d3.geo.path()
 					 .projection(projection);
 
 	//Create SVG element
-	var svg = d3.select("#chart")
+	var svg = d3.select("body")
 				.append("svg")
 				.attr("id","map")
 				.attr("width", w)
 				.attr("height", h);
 
 	//Load in GeoJSON data
-
 d3.json("us.json", function(json) {
-
-	d3.json("ChartService.php", function(jsondata){
-		//alert("inside json");
-		datamart=jsondata;
-		console.log(datamart);
+		
 		//Bind data and create one path per GeoJSON feature
 		svg.selectAll("path")
 		   .data(json.features)
@@ -59,29 +58,28 @@ d3.json("us.json", function(json) {
 		   .attr("stroke-width","1")
 		   .attr("stroke","white")
 		   .attr("d", path)
-		    .attr('font-size','6pt')
 		   .style("fill", "#C2C4C4")
 		   .style("stroke","1px");
-    
-    
-   
-		//alert(JSON.stringify(datamart));
-		//alert(JSON.stringify(datamart.data))
-		//alert(JSON.stringify(datamart.data[0]))
-		//alert(JSON.stringify(datamart.data[0].State))
-		for(i=0;i<datamart.data.length;i++)
-		{
-	$("#"+datamart.data[i].State).css("fill","#e35656");
-	$("#"+datamart.data[i].State).attr("value",datamart.data[i].Visits);
-			}
-		//d3.select("#".data.data[0].State).attr("dummy",function(){return data.data[0].Visits})
-		});
-		
 
 	});
 
 
 
+d3.json("ChartService.php", function(json){
+	//alert("inside json");
+	datamart=json;
+	console.log(datamart);
+	//alert(JSON.stringify(datamart));
+	//alert(JSON.stringify(datamart.data))
+	//alert(JSON.stringify(datamart.data[0]))
+	//alert(JSON.stringify(datamart.data[0].State))
+	for(i=0;i<datamart.data.length;i++)
+	{
+$("#"+datamart.data[i].State).css("fill","#e35656");
+$("#"+datamart.data[i].State).attr("value",datamart.data[i].Visits);
+		}
+	//d3.select("#".data.data[0].State).attr("dummy",function(){return data.data[0].Visits})
+	});
 $("#map").click(function(e){ 
 	
     var mouseX = e.pageX;
@@ -115,11 +113,6 @@ function tooltip(x,y,value)
 
 </head>
 <body>
-<div id="chart" style="left:50px;width:500px;height:500px;">
-
-<div id="feed">
-
-</div>
-</div>
+<div id="feed"></div>
 </body>
 </html>

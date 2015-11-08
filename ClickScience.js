@@ -4,6 +4,7 @@ var ClickComment;
 var PageLoadTime;
 var aftrload;
 var Country;
+
 var City;
 var TimeSpent;
 var referrer;

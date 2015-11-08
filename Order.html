@@ -34,8 +34,8 @@ $(window).load(function(){
 	});
 	$("#pay").click(function(){
 		
-		
-		WCogent.Begin("Order "+offer,"before send","Attempt");
+		wc=WCogent;
+		wc.Begin("Order "+offer,"before send","Attempt");
 		  $.ajax({ 
 			  beforeSend: function() {
 			        // setting a timeout
@@ -47,13 +47,14 @@ $(window).load(function(){
 		        type: 'post',
 		        success: function(output) {
 		             
+		             
 		             console.log(output);
 		             if(output.trim() =="success")
 		            	 {
 		             
-		             WCogent.End("success");
+		             wc.End("success");
 		            	 }
-		             else{WCogent.End("Fail")}
+		             else{wc.End("Fail")}
 		                 },
 		        error:function(err){
 		        	

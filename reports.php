@@ -13,7 +13,7 @@ $(window).load(function(){
 
 $("#visit").click(function(){
 	 
-	$("#container").attr("src","gridview.php");
+	$("#container").attr("src","GridView.php");
 	
 });
 

@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-
 <html>
 <head>
-	<meta charset="UTF-8">
 <title>US Chart</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
 
-<<<<<<< HEAD
 <script type="text/javascript" src="d3.js"></script>
 
 
@@ -17,13 +13,6 @@
 
 var datamart;
 while(!d3){}
-=======
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-<script type="text/javascript">
-
-var datamart;
-
->>>>>>> origin/master
 	
 $(window).load(function(){
 	
@@ -32,11 +21,7 @@ $(window).load(function(){
 
 	//alert("before grab");
 	
-	while(!d3)
-{
 	
-	
-}
 
 
 
@@ -60,6 +45,7 @@ $(window).load(function(){
 				.attr("height", h);
 
 	//Load in GeoJSON data
+
 d3.json("us.json", function(json) {
 
 	d3.json("ChartService.php", function(jsondata){

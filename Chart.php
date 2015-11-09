@@ -96,13 +96,13 @@ $("#map").click(function(e){
 function tooltip(x,y,value)
 {
 	$("#feed").hide();
-	holder='<div style="position:absolute;left:'+(x+10)+'; top:'+(y)+';width:50px;height:50px;background-color:#edebe6;border-radius:5px;">';
+	holder='<div style="position:absolute;left:'+(x+10)+'px; top:'+(y)+'px;width:50px;height:50px;background-color:#edebe6;border-radius:5px;">';
 	holder +='<p style="left:15px;position:relative;">'
 	holder +=value;
 	holder +="</p>";
 	holder +="</div>";
 	$("#feed").html(holder);
-	alert(holder);
+	
 	$("#feed").show();
 }
 

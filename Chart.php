@@ -102,7 +102,7 @@ function tooltip(x,y,value)
 	holder +="</p>";
 	holder +="</div>";
 	$("#feed").html(holder);
-	
+	alert(holder);
 	$("#feed").show();
 }
 

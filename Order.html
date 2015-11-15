@@ -53,8 +53,9 @@ $(window).load(function(){
 		            	 {
 		             
 		             wc.End("success");
+		             $("#feedback").html('<p style="color:green;">Successfully placed order.</p>');
 		            	 }
-		             else{wc.End("Fail")}
+		             else{wc.End("Fail");$("#feedback").html('<p style="color:red;">Order failed to place.</p>');}
 		                 },
 		        error:function(err){
 		        	
@@ -88,6 +89,7 @@ $(window).load(function(){
         <td><span>Address</span></td><td><textarea></textarea></td></tr>
         <tr><td>Price</td><td><input id="money" type="text" /></td></tr>
         <tr><td><input type="button" id="pay" value="Pay" /></td></tr>
+        <tr<td id="feedback"></td>></tr>
         </table>
     </div>
 </body>

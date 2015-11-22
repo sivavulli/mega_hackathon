@@ -20,8 +20,8 @@ if (mysqli_connect_errno($con))
 $sql = "INSERT INTO  tbl_transaction_timespent_details".
 				"(TransactionID,Status,TimeSpent)".
 				" VALUES ('"
-				.nullif(TransactionID)."','"
-				.nullif(Status)."',".nullif(TimeSpent).")";
+				.nullif($_POST["TransactionID"])."','"
+				.nullif($_POST["Status"])."',".nullif($_POST["TimeSpent"]).")";
 
 						if (!mysqli_query($con,$sql))
 						{

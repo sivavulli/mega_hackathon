@@ -1,7 +1,7 @@
 <?php
 
 		
-header("Content-type: text/csv");
+header("Content-type: text/tsv");
 /*header("Content-Disposition: attachment; filename=file.tsv");
 header("Pragma: no-cache");
 header("Expires: 0");*/
@@ -41,7 +41,7 @@ $counter=1;
 while($col = mysqli_fetch_field($result))
 {
 	if($counter !=1){
-		echo ",";
+		echo "\t";
 	}
 	echo $col->name;
 $counter++;
@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_array($result)) {
 	
 	for($i=0;$i<sizeof($row)/2;$i++){
 		if($i!=0){
-			echo ",";
+			echo "\t";
 		}
 		
 		echo $row[$i];

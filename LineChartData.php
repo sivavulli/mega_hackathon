@@ -47,7 +47,7 @@ while($col = mysqli_fetch_field($result))
 $counter++;
 
 }
-//echo "\r\n";
+echo "\r\n";
 
 
 /*
@@ -80,7 +80,7 @@ while ($row = mysqli_fetch_array($result)) {
 		echo $row[$i];
 		
 	}
-//	echo "\r\n";
+	echo "\r\n";
 }
 
 

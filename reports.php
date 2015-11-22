@@ -17,7 +17,11 @@ $("#visit").click(function(){
 	
 });
 
-
+$("#transactiontime").click(function(){
+	 
+	$("#container").attr("src","TransactionTimeReport.php");
+	
+});
 
 
 $("#timespent").click(function(){
@@ -79,6 +83,11 @@ Transaction Report
 <div id="navigation" style="float:left;width:150px;height:50px;">
 <p style="top:15;color:white;">
 Navigation Report
+</p>
+</div>
+<div id="transactiontime" style="float:left;width:150px;height:50px;">
+<p style="top:15;color:white;">
+Transaction Time
 </p>
 </div>
 </div>

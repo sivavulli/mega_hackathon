@@ -1,8 +1,9 @@
 <?php
 
 session_start();
-include('TransactionClass.php');
-include('ClassSessions.php');
+
+ini_set("error_reporting", E_ALL); 
+ini_set("display_errors", 1); 
 date_default_timezone_set('America/New_York');
 function nullif($var){
 	if(isset($var) && !empty($var))

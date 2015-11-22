@@ -21,7 +21,7 @@ if (mysqli_connect_errno($con))
 $sql = "INSERT INTO  tbl_transaction_timespent_details".
 				"(TransactionID,Date,Status,TimeSpent)".
 				" VALUES ('"
-				.nullif($_POST["TransactionID"])."',".sysdate().",'"
+				.nullif($_POST["TransactionID"])."',sysdate(),'"
 				.nullif($_POST["Status"])."',".nullif($_POST["TimeSpent"]).")";
 
 						if (!mysqli_query($con,$sql))

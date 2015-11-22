@@ -15,11 +15,11 @@ if(isset($_GET["type"]) && !empty($_GET["type"]))
 {
   if($_GET["type"]=="Success")
   {
-  $sql="select Date_format(`Date`,'%d-%b-%Y') as 'date', cast(avg(`TimeSpent`) as decimal(18,3)) as 'close' from tbl_transaction_timespent_details where `Status` like 'Success' group by Date_format(`Date`,'%d-%b-%Y')";
+  $sql="select cast(`Date` as date) as 'date', cast(avg(`TimeSpent`) as decimal(18,3)) as 'close' from tbl_transaction_timespent_details where `Status` like 'Success' group by cast(`Date` as date) ";
   }
   if($_GET["type"]=="Failure")
   {
-  $sql="select Date_format(`Date`,'%d-%b-%Y') as 'date', cast(avg(`TimeSpent`) as decimal(18,3)) as 'close' from tbl_transaction_timespent_details where `Status` like 'Fail' group by Date_format(`Date`,'%d-%b-%Y') ";
+  $sql="select cast(`Date` as date) as 'date', cast(avg(`TimeSpent`) as decimal(18,3)) as 'close' from tbl_transaction_timespent_details where `Status` like 'Fail' group by cast(`Date` as date) ";
   }
 }
 

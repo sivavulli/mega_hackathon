@@ -65,7 +65,7 @@ var svg = d3.select("body")
               "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.tsv("LineChartData.php?type=Success", function(error, data) {
+d3.json("LineChartData.php?type=Success", function(error, data) {
     holder=data;
     data.forEach(function(d) {
        /* formatDate = d3.time.format("%d-%b-%Y");

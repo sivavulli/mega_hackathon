@@ -11,11 +11,12 @@ var referrer;
 var MovAway;
 var ComeTo;
 var AwayTime=0;
-var WCogent={TransactionID:"",TransactionType:"",Comment:"",Status:"",
+var WCogent={TransactionID:"",TransactionType:"",Comment:"",Status:"",StartTime:"",EndTime:"",
 		Begin:function(trnstype,cmnt,sttus){
 			this.TransactionType=trnstype;
 			this.Comment=cmnt;
 			this.Status=sttus;
+			this.StartTime =new Date().getTime();
 			var trid="";
 			 $.ajax({ 
 			    	url: 'TransactionService.php',
@@ -45,7 +46,21 @@ var WCogent={TransactionID:"",TransactionType:"",Comment:"",Status:"",
 				console.log("tr type "+WCogent.TransactionType);
 				console.log("tr comment "+WCogent.Comment);
 				console.log("tr comment "+sttus);
+				this.EndTime =new Date().getTime();
+				var timespent=((WCogent.EndTime-WCogent.StartTime)/1000);
+				console.log("Ended Timestamp "+WCogent.EndTime);
 				if(this.Status=="fail"){sttus="fail"}
+				$.ajax({ 
+			    	url: 'TransactionTimeSpent.php',
+			        data: {TransactionID:WCogent.TransactionID,Status: sttus,TimeSpent:timespent},
+			        type: 'post',
+			        success: function(output) {
+			                 alert(output);
+			                 },
+			        error:function(err){
+			        	
+			            }
+			    });
 				$.ajax({ 
 			    	url: 'TransactionService.php',
 			        data: {event:"end",TransactionID:WCogent.TransactionID,TransactionType: WCogent.TransactionType,Comment: WCogent.Comment, Status: sttus},

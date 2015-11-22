@@ -65,8 +65,8 @@ var svg = d3.select("body")
 // Get the data
 d3.csv("LineChartData.php?type="+type, function(error, data) {
     data.forEach(function(d) {
-        formatDate = d3.time.format("%d-%b-%Y");
-        data1=formatDate(parseDate(d.date));
+       /* formatDate = d3.time.format("%d-%b-%Y");
+        data1=formatDate(parseDate(d.date));*/
         data2=parseDate(d.date);
         d.date = parseDate(d.date);
         d.close = +d.close;

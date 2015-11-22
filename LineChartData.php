@@ -6,7 +6,7 @@ class lineclass
 	public $date;
 	public $close;
 }
-header("Content-type: text/tsv");
+header("Content-type: application/json");
 /*header("Content-Disposition: attachment; filename=file.tsv");
 header("Pragma: no-cache");
 header("Expires: 0");*/

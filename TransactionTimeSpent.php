@@ -3,7 +3,7 @@
 session_start();
 include('TransactionClass.php');
 include('ClassSessions.php');
-
+date_default_timezone_set('America/New_York');
 function nullif($var){
 	if(isset($var) && !empty($var))
 	{
@@ -18,9 +18,9 @@ if (mysqli_connect_errno($con))
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $sql = "INSERT INTO  tbl_transaction_timespent_details".
-				"(TransactionID,Status,TimeSpent)".
+				"(TransactionID,Date,Status,TimeSpent)".
 				" VALUES ('"
-				.nullif($_POST["TransactionID"])."','"
+				.nullif($_POST["TransactionID"])."','".sysdate()."','"
 				.nullif($_POST["Status"])."',".nullif($_POST["TimeSpent"]).")";
 
 						if (!mysqli_query($con,$sql))

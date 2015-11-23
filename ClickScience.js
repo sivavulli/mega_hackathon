@@ -55,7 +55,7 @@ var WCogent={TransactionID:"",TransactionType:"",Comment:"",Status:"",StartTime:
 			        data: {TransactionID:WCogent.TransactionID,Status: sttus,TimeSpent:timespent},
 			        type: 'post',
 			        success: function(output) {
-			                 alert(output);
+			                 //alert(output);
 			                 },
 			        error:function(err){
 			        	
